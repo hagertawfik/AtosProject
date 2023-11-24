@@ -26,6 +26,5 @@ namespace Application_Layer.DTO
 
         [Required(ErrorMessage = "Gender is required")]
         public string Gender { get; set; }
-
     }
 }
