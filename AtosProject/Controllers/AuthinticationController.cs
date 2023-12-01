@@ -26,11 +26,11 @@ namespace APIs_layer.Controllers
             try
             {
                 if (!ModelState.IsValid)
-                    return BadRequest("Invalid payload");
+                    return StatusCode(500, "Invalid payload");
                 var authResults = await _registerService.Registeration(model);
                 if (authResults.Result == false)
                 {
-                    return BadRequest(authResults);
+                    return StatusCode(500,authResults);
                 }
                 return Ok(authResults);
 

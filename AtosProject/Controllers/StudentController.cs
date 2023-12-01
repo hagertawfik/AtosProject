@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIs_layer.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
 
     [Route("api/[controller]")]
     [ApiController]
@@ -31,8 +31,8 @@ namespace APIs_layer.Controllers
         }
 
 
-        [HttpPatch("updateIsActive/{studentid}/isActive")]
-        public IActionResult UpdateIsActive(string studentid, [FromBody] bool isActive)
+        [HttpPatch("updateIsActive/{studentid}/{isActive}")]
+        public IActionResult UpdateIsActive(string studentid, bool isActive)
         {
             try
             {  

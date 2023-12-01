@@ -6,6 +6,8 @@ namespace Application_Layer.BussinesLogicInterface
     {
         bool AddNewStudentSubject(string studentId, int subjectId);
         List<SubjectDto> GetStudentSubjects(string studentId);
+        List<SubjectDto> GetSubjectSudentdoesnotrole(string studentId);
         bool IsStudentAssignToSubject(string studentId, int subjectId);
+
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryLayer.Repository_Implementations
 {
-    public class ExamRepository:IExamRepository
+    public class ExamRepository : IExamRepository
     {
         private readonly DataContext _context;
 
@@ -38,7 +38,7 @@ namespace RepositoryLayer.Repository_Implementations
         public int GetCompletedExams()
         {
             var completedExamsCount = _context.ExamResults
-                .Select(r => r.ExamId) 
+                .Select(r => r.ExamId)
                 .Distinct()
                 .Count();
 
@@ -49,7 +49,7 @@ namespace RepositoryLayer.Repository_Implementations
         {
             var questionsNumber = _context.ExamConfigurations.Sum(ec => ec.QuestionsNumber);
             var passedExamsCount = _context.ExamResults
-                .Count(r => r.Grade > 0.5* questionsNumber);
+                .Count(r => r.Grade > 0.5 * questionsNumber);
 
             return passedExamsCount;
         }
@@ -64,14 +64,14 @@ namespace RepositoryLayer.Repository_Implementations
             return failedExamsCount;
         }
 
-        public bool AddQuestionsExam( ExamQuestion examQuestion)
+        public bool AddQuestionsExam(ExamQuestion examQuestion)
         {
             _context.ExamQuestions.Add(examQuestion);
             return Save();
 
         }
 
-      
+
         public Exam GetExam(int subjectId)
         {
             Random random = new Random();
@@ -84,7 +84,7 @@ namespace RepositoryLayer.Repository_Implementations
 
             return null;
         }
-     
+
 
         public List<Question> GetQuestionsWithChoicesByExamId(int examId)
         {
@@ -120,4 +120,4 @@ namespace RepositoryLayer.Repository_Implementations
 
     }
 
-    }
+}

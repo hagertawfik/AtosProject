@@ -12,24 +12,27 @@ namespace Application_Layer.BussinesLogic
     public class ExamResultService:IExamResultService
     {
         private readonly IExamResultRepository _examResultRepository;
+        private readonly ISubjectRepository _subjectRepository;
 
-        public ExamResultService(IExamResultRepository examResultRepository)
+        public ExamResultService(IExamResultRepository examResultRepository , ISubjectRepository subjectRepository)
         {
             _examResultRepository = examResultRepository;
+            _subjectRepository = subjectRepository;
         }
 
         public List<ExamHistoryDto> GetAllExamHistory(int page, int pageSize)
         {
             var examResults = _examResultRepository.GetAllExamResults(page, pageSize);
 
-          
+
             var examHistoryList = examResults.Select(result => new ExamHistoryDto
             {
-               
                 StudentName = result.Student.Stname,
                 Grade = result.Grade,
                 StartTime = result.startTime,
-                EndTime = result.endTime
+                EndTime = result.endTime,
+                SubjectId = result.Exam.SubjectId,
+                SubjectName = _subjectRepository.GetSubjectNameById(result.Exam.SubjectId),
             }).ToList();
 
             return examHistoryList;
@@ -43,11 +46,12 @@ namespace Application_Layer.BussinesLogic
             
             var examHistoryList = examResults.Select(result => new ExamHistoryDto
             {
-            
                 StudentName = result.Student.Stname,
                 Grade = result.Grade,
                 StartTime = result.startTime,
-                EndTime = result.endTime
+                EndTime = result.endTime,
+                SubjectId = result.Exam.SubjectId,
+                SubjectName = _subjectRepository.GetSubjectNameById(result.Exam.SubjectId),
             }).ToList();
 
             return examHistoryList;

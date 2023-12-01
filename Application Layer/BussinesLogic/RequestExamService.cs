@@ -59,7 +59,6 @@ namespace Application_Layer.BussinesLogic
                 QuestionsWithChoices = questionsWithChoicesDto
             };
 
-            //var
 
             return examDto;
 

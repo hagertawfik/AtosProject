@@ -27,7 +27,7 @@ namespace RepositoryLayer.Repository_Implementations
         }
         public ICollection<Student> GetAllStudents(int page, int pageSize)
         {
-            var students = _context.Users.ToList();
+            var students = _userManager.GetUsersInRoleAsync("student").Result.ToList();
             var totalCount = students.Count();
             var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
             var studentsPerPage = students.Skip(page - 1).Take(pageSize).ToList();

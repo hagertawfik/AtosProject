@@ -9,7 +9,7 @@ namespace Application_Layer.DTO
     public class ExamResultDto
     {
         public int Grade { get; set; }
-        public DateTime endTime { get; set; } = DateTime.Now;
+        public DateTime endTime { get; set; }
         public DateTime startTime { get; set; } 
         public int ExamId { get; set; }
         public string StudentId { get; set; }

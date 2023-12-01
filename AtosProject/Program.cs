@@ -82,8 +82,6 @@ builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 builder.Services.AddScoped<ICreateExamService, CreateExamService>();
 builder.Services.AddScoped<IRequestExamSevice, RequestExamService>();
-//builder.Services.AddScoped<ISubmitExamRepository, SubmitExamRepository>();
-//builder.Services.AddScoped<ISubmitExamService, SubmitExamService>();
 builder.Services.AddScoped<IExamResultService, ExamResultService>();
 builder.Services.AddScoped<IExamResultRepository, ExamResultRepository>();
 

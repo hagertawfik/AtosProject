@@ -33,6 +33,12 @@ namespace RepositoryLayer.Repository_Implementations
         {
             return _context.Subjects.FirstOrDefault(s => s.SubjectId == id);
         }
+
+        public string GetSubjectNameById(int id)
+        {
+            var subject =  _context.Subjects.FirstOrDefault(s => s.SubjectId == id);
+            return subject.Name;
+        }
         public bool Save()
         {
             var saved = _context.SaveChanges();

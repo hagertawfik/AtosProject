@@ -12,7 +12,7 @@ namespace Application_Layer.DTO
         public string StudentId { get; set; }
         public int SubjectId { get; set; } 
         public List<QuestionChioceSubmitDto> SelectedChoices { get; set; }
-        public DateTime StartDateTime { get; set; } 
+        public DateTime StartDateTime { get; set; } = DateTime.Now;
         public  DateTime EndDateTime { get; set; }
     }
 }

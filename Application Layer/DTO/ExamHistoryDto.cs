@@ -10,7 +10,8 @@ namespace Application_Layer.DTO
     {
         public string ExamName { get; set; }
         public string StudentName { get; set; }
-      //  public string SubjectName { get; set; }
+        public string SubjectName { get; set; }
+        public int SubjectId { get; set; }
         public int Grade { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

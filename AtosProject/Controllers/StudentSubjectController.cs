@@ -58,5 +58,24 @@ namespace APIs_layer.Controllers
             }
         }
 
+
+
+        [HttpGet("getanotherSubjects")]
+        public IActionResult GetSubjectSudentdoesnotrole()
+        {
+
+            try
+            {
+                var studentId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var studentSubjects = _studentSubjectService.GetSubjectSudentdoesnotrole(studentId);
+                return Ok(studentSubjects);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
+        }
+
     }
 }

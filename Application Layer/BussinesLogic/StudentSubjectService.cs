@@ -46,6 +46,17 @@ namespace Application_Layer.BussinesLogic
          
         }
 
+
+        public List<SubjectDto> GetSubjectSudentdoesnotrole(string studentId)
+        {
+            var allSubjects = _subjectRepository.GetAllSubjects().ToList();
+            var studentSubjects = _subjectRepository.GetStudentSubjects(studentId);
+            var subjectsNotEnrolled = allSubjects.Where(sub => !studentSubjects.Any(stSub => stSub.SubjectId == sub.SubjectId)).ToList();
+
+            var subjects = _mapper.Map<List<SubjectDto>>(subjectsNotEnrolled);
+            return subjects;
+
+        }
         public bool IsStudentAssignToSubject(string studentId, int subjectId)
         {
             var studentSubjects = GetStudentSubjects(studentId);

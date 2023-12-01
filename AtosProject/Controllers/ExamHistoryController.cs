@@ -17,7 +17,7 @@ namespace APIs_layer.Controllers
             _examResultService = examResultService;
         }
 
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpGet("AllExamsHistory")]
         public IActionResult GetExamHistory(int page, int pageSize)
         {

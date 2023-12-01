@@ -15,5 +15,6 @@ namespace RepositoryLayer.Repository_Interfaces
          bool Save();
         bool Update(Subject subject);
         ICollection<Subject> GetStudentSubjects(string studentId);
+        string GetSubjectNameById(int id);
     }
 }
